@@ -69,9 +69,7 @@ export class App extends Component {
             <BackgroundImage/>
             <AddListItem addListItem = { this.addListItem }/> 
             <List list = { this.state.list } delLi = { this.delLi } updateListItem = { this.updateListItem }/>
-            <div className = "mobelImage">
             <Image/>
-            </div>
             </div>
         );
     }
