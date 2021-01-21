@@ -24,12 +24,12 @@ List.propTypes = {
 
 const listStyle = {
     position: "absolute",
-    marginLeft: "112.625vw",
+    marginLeft: "45.625vw",
     marginTop: "10.22vh",
     backgroundColor: "#FFF",
     boxShadow: "0px 4px 14px rgba(23, 25, 50, 0.5)",
     borderRadius: "10px",
-    width: "35.625vw",
+    width: "28.625vw",
     height: "42vh",
     overflowY: "scroll"
 };

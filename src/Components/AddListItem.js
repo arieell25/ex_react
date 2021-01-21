@@ -65,9 +65,9 @@ export class AddListItem extends Component {
 
 const formStyle = {
     position: "absolute",
-    marginLeft: "153.6875vw",
+    marginLeft: "75.6875vw",
     marginTop: "10.22vh",
-    width: "22.625vw",
+    width: "20.625vw",
     height: "30vh",
     boxShadow: "0px 4px 14px rgba(23, 25, 50, 0.5)",
     borderRadius: "10px"
@@ -77,7 +77,7 @@ const dateStyle = {
     position: "relative",
     marginLeft: "05.198776758%",
     marginTop: "04.761904761%",
-    width: "20.4375vw",
+    width: "18.4375vw",
     height: "05.33vh",
     background: "#FFF",
     boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.15)"
@@ -87,7 +87,7 @@ const nameStyle = {
     position: "relative",
     marginLeft: "05.198776758%",
     marginTop: "04.761904761%",
-    width: "20.4375vw",
+    width: "18.4375vw",
     height: "05.33vh",
     background: "#FFF",
     boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.15)"
@@ -97,7 +97,7 @@ const cityStyle = {
     position: "relative",
     marginLeft: "05.198776758%",
     marginTop: "04.761904761%",
-    width: "20.4375vw",
+    width: "18.4375vw",
     height: "05.33vh",
     background: "#FFF",
     boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.15)"

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import List from "./Components/List";
 import Image from "./Components/Image";
-import BackgroundImage from "./Components/BackgroundImag";
 import Axios from "axios";
 import AddListItem from "./Components/AddListItem";
 
@@ -65,12 +64,13 @@ export class App extends Component {
 
     render() {
         return ( 
-            <div className = "classContiner">
-            <BackgroundImage/>
+            <div>
+            <span className = "backgroundImg"></span>
             <AddListItem addListItem = { this.addListItem }/> 
             <List list = { this.state.list } delLi = { this.delLi } updateListItem = { this.updateListItem }/>
             <Image/>
             </div>
+        
         );
     }
 }

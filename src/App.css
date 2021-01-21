@@ -2,12 +2,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #ffffff !important;
-    overflow-x: hidden; 
+    overflow-x: hidden;
+
 }
 
 li {
@@ -15,14 +17,10 @@ li {
     text-decoration: none;
 }
 
-.classContiner {
-    width: 100%;
-    margin: auto;
-    background: #FFFFFF;
-    
+.backgroundImg {
+    position: absolute;
+    height: 80vh;
+    width: 64vw;
+    background: url(https://cdn1.bbcode0.com/uploads/2021/1/18/765efcc504ed753b260504ee20bcc3c5-full.png) no-repeat;
+    margin-left: 35vw;
 }
-
-
-
-
-
