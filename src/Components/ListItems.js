@@ -79,7 +79,7 @@ export class ListItem extends Component {
             <div>
             <form onSubmit = { this.onSubmit }
             className = "form-control" >
-            <input type = "date" name = "date" value = { this.state.itemEdit.date || "" }
+            <input type = "text" name = "date" value = { this.state.itemEdit.date || "" }
             onChange = { this.changeDate }
             style = { dateStyle }
             className = "form-control"/>
@@ -195,8 +195,7 @@ const submitStyle = {
     padding: "0",
     backgroundColor: "#FD584200",
     position: "relative",
-    marginLeft: "42.54%",
-    marginTop: "-2.857%"
+    marginLeft: "42.54%"
 };
 
 const saveStyle = {

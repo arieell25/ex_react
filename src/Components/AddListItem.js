@@ -32,7 +32,7 @@ export class AddListItem extends Component {
             <form style = { formStyle }
             onSubmit = { this.onSubmit }
             className = "form-group" >
-            <input type = "date"
+            <input type = "text"
             name = "date"
             placeholder = "date"
             value = { this.state.date }
