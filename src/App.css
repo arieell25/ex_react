@@ -7,7 +7,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #ffffff !important;
-    
+    overflow-x: hidden;    
 }
 
 li {
@@ -20,6 +20,8 @@ li {
     margin: auto;
     background: #FFFFFF;
 }
+
+
 
 
 

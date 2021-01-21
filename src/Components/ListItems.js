@@ -32,7 +32,7 @@ export class ListItem extends Component {
         this.setState({
             itemEdit: {
                 id: this.state.itemEdit.id,
-                data: e.target.value,
+                date: e.target.value,
                 name: this.state.itemEdit.name,
                 city: this.state.itemEdit.city
             }
@@ -79,7 +79,7 @@ export class ListItem extends Component {
             <div>
             <form onSubmit = { this.onSubmit }
             className = "form-control" >
-            <input type = "text" name = "date" value = { this.state.itemEdit.date || "" }
+            <input type = "date" name = "date" value = { this.state.itemEdit.date || "" }
             onChange = { this.changeDate }
             style = { dateStyle }
             className = "form-control"/>
