@@ -6,11 +6,14 @@ export class List extends Component {
     render() {
         return ( 
             <ul style = { listStyle }> 
-                {this.props.list.map(listItem => ( 
+                {this.props.list.map((listItem, index) => ( 
                     <li key = { listItem.id } >  
-                    <ListItem listItem = { listItem }
+                    <ListItem
+                      itemIndex={ index+1 }
+                      listItem = { listItem }
                       delLi = { this.props.delLi }
-                      updateListItem = { this.props.updateListItem }/> 
+                      updateListItem = { this.props.updateListItem }
+                    /> 
                     </li>
                 ))} 
             </ul>

@@ -9,6 +9,7 @@ export class ListItem extends Component {
             edit: false,
             itemEdit: {
                 id: "",
+                index: null,
                 date: "",
                 name: "",
                 city: ""
@@ -57,7 +58,7 @@ export class ListItem extends Component {
                 date: this.state.itemEdit.date,
                 name: this.state.itemEdit.name,
                 city: e.target.value
-                
+
             }
         });
     };
@@ -70,63 +71,68 @@ export class ListItem extends Component {
             this.state.itemEdit.name,
             this.state.itemEdit.city
         );
-        this.setState({ itemEdit: {id: "", date: "", name: "", city: "" }});
+        this.setState({ itemEdit: { id: "", date: "", name: "", city: "" } });
         this.setState({ edit: false });
     };
 
     renderEdit() {
-        return ( 
+        return (
             <div>
-            <form onSubmit = { this.onSubmit }
-            className = "form-control" >
-            <input type = "text" name = "date" placeholder = "date" value = { this.state.itemEdit.date || "" }
-            onChange = { this.changeDate }
-            style = { dateStyle }
-            className = "form-control"/>
-            <input type = "textarea" name = "name" placeholder = "name" value = { this.state.itemEdit.name || "" }
-            onChange = { this.changeName }
-            style = { nameStyle }
-            className = "form-contraol"/>
-            <input type = "textarea" name = "city" placeholder = "city" value = { this.state.itemEdit.city || "" }
-            onChange = { this.changeCity }
-            style = { cityStyle }
-            className = "form-control"/>
-            <button type = "submit" style = { submitStyle }>
-            <FaSave style = { saveStyle }/> 
-            </button>
-            </form> 
+                <form onSubmit={this.onSubmit}
+                    className="form-control" >
+                    <input type="text" name="date" placeholder="date" value={this.state.itemEdit.date || ""}
+                        onChange={this.changeDate}
+                        style={dateStyle}
+                        className="form-control" />
+                    <input type="textarea" name="name" placeholder="name" value={this.state.itemEdit.name || ""}
+                        onChange={this.changeName}
+                        style={nameStyle}
+                        className="form-contraol" />
+                    <input type="textarea" name="city" placeholder="city" value={this.state.itemEdit.city || ""}
+                        onChange={this.changeCity}
+                        style={cityStyle}
+                        className="form-control" />
+                    <button type="submit" style={submitStyle}>
+                        <FaSave style={saveStyle} />
+                    </button>
+                </form>
             </div>
         );
     }
 
-    renderUI(id, date, name, city) {
+    renderUI(index, id, date, name, city) {
+        let indexToShow = index;
         let dateToShow = date;
         if (dateToShow.length > 20) dateToShow = dateToShow.slice(0, 19) + "...";
         let nameToShow = name;
         let cityToShow = city;
 
-        return ( 
-            <div style = { itemStyle }>    
-            <span> { dateToShow } </span>
-            <span> { nameToShow } </span> 
-            <span> { cityToShow } </span> 
-            <button type = "submit" style = { submitCircleStyle } >
-            <FaTrash className = "delete" style = { delStyle } onClick = { this.props.delLi.bind(this, id) }/> 
-            </button>
-            <button type = "submit" style = { submitCircleStyle } > 
-            <FaPen className = "edit" style = { editStyle } onClick = { this.edit.bind(this, id) }/> 
-            </button>
-            <style> 
-            { `.delete:hover{opacity: 0.7;}
-            .edit:hover{opacity: 0.7;}` } 
-            </style> 
+        return (
+            <div style={itemStyle}>
+            
+                <span  style={rowStyle}> {indexToShow} </span>
+                <span  style={rowStyle}> {dateToShow} </span>
+                <span  style={rowStyle}> {nameToShow} </span>
+                <span  style={rowStyle}> {cityToShow} </span>
+      
+                <button type="submit" style={submitCircleStyle} >
+                    <FaTrash className="delete" style={delStyle} onClick={this.props.delLi.bind(this, id)} />
+                </button>
+                <button type="submit" style={submitCircleStyle} >
+                    <FaPen className="edit" style={editStyle} onClick={this.edit.bind(this, id)} />
+                </button>
+                <style>
+                    {`.delete:hover{opacity: 0.7;}
+            .edit:hover{opacity: 0.7;}` }
+                </style>
             </div>
         );
     }
 
     render() {
         const { id, date, name, city } = this.props.listItem;
-        return this.state.edit ? this.renderEdit(id, date, name, city) : this.renderUI(id, date, name, city);
+        const index= this.props.itemIndex;
+        return this.state.edit ? this.renderEdit(id, date, name, city) : this.renderUI(index, id, date, name, city);
     }
 }
 
@@ -201,8 +207,12 @@ const submitCircleStyle = {
     float: "right",
     height: "24px",
     width: "24px",
-    marginRight:"10px"
-    
+    marginRight: "10px"
+
+}
+
+const rowStyle = {
+    marginRight: 10
 }
 
 export default ListItem;

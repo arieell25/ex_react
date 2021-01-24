@@ -110,7 +110,8 @@ const submitStyle = {
     padding: "0",
     position: "relative",
     marginLeft: "42.54%",
-    marginTop: "2.857%"
+    marginTop: "2.857%",
+    background: "none"
 };
 
 const circleStyle = {
