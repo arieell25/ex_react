@@ -70,7 +70,7 @@ export class ListItem extends Component {
             this.state.itemEdit.name,
             this.state.itemEdit.city
         );
-        this.setState({ itemEdit: { id: "", date: "", name: "", city: "" } });
+        this.setState({ itemEdit: {id: "", date: "", name: "", city: "" }});
         this.setState({ edit: false });
     };
 
@@ -79,15 +79,15 @@ export class ListItem extends Component {
             <div>
             <form onSubmit = { this.onSubmit }
             className = "form-control" >
-            <input type = "text" name = "date" value = { this.state.itemEdit.date || "" }
+            <input type = "text" name = "date" placeholder = "date" value = { this.state.itemEdit.date || "" }
             onChange = { this.changeDate }
             style = { dateStyle }
             className = "form-control"/>
-            <input type = "text" name = "name" value = { this.state.itemEdit.name || "" }
+            <input type = "textarea" name = "name" placeholder = "name" value = { this.state.itemEdit.name || "" }
             onChange = { this.changeName }
             style = { nameStyle }
-            className = "form-control"/>
-            <input type = "text" name = "city" value = { this.state.itemEdit.city || "" }
+            className = "form-contraol"/>
+            <input type = "textarea" name = "city" placeholder = "city" value = { this.state.itemEdit.city || "" }
             onChange = { this.changeCity }
             style = { cityStyle }
             className = "form-control"/>
@@ -101,26 +101,24 @@ export class ListItem extends Component {
 
     renderUI(id, date, name, city) {
         let dateToShow = date;
+        if (dateToShow.length > 20) dateToShow = dateToShow.slice(0, 19) + "...";
         let nameToShow = name;
         let cityToShow = city;
-       
-       
+
         return ( 
-            <div style = { itemStyle }>
+            <div style = { itemStyle }>    
             <span> { dateToShow } </span>
             <span> { nameToShow } </span> 
             <span> { cityToShow } </span> 
-            <FaTrash className = "delete"
-            style = { delStyle }
-            onClick = { this.props.delLi.bind(this, id) }/> 
+            <button type = "submit" style = { submitCircleStyle } >
+            <FaTrash className = "delete" style = { delStyle } onClick = { this.props.delLi.bind(this, id) }/> 
+            </button>
+            <button type = "submit" style = { submitCircleStyle } > 
             <FaPen className = "edit" style = { editStyle } onClick = { this.edit.bind(this, id) }/> 
+            </button>
             <style> 
-            { `.delete:hover{
-            opacity: 0.7;
-            }
-            .edit:hover{
-            opacity: 0.7;
-            }` } 
+            { `.delete:hover{opacity: 0.7;}
+            .edit:hover{opacity: 0.7;}` } 
             </style> 
             </div>
         );
@@ -128,9 +126,7 @@ export class ListItem extends Component {
 
     render() {
         const { id, date, name, city } = this.props.listItem;
-        return this.state.edit ?
-            this.renderEdit(id, date, name, city) :
-            this.renderUI(id, date, name, city);
+        return this.state.edit ? this.renderEdit(id, date, name, city) : this.renderUI(id, date, name, city);
     }
 }
 
@@ -150,19 +146,15 @@ const itemStyle = {
 };
 
 const delStyle = {
-    float: "right",
-    marginRight: "17px",
-    color: "#444749"
+    color: "#FFF",
 };
 
 const editStyle = {
-    float: "right",
-    marginRight: "16px"
+    color: "#FFF"
 };
 
 const dateStyle = {
     position: "relative",
-    marginLeft: "05.198776758%",
     marginTop: "04.761904761%",
     width: "20.4375vw",
     height: "05.33vh",
@@ -172,7 +164,6 @@ const dateStyle = {
 
 const nameStyle = {
     position: "relative",
-    marginLeft: "05.198776758%",
     marginTop: "04.761904761%",
     width: "20.4375vw",
     height: "05.33vh",
@@ -182,7 +173,6 @@ const nameStyle = {
 
 const cityStyle = {
     position: "relative",
-    marginLeft: "05.198776758%",
     marginTop: "04.761904761%",
     width: "20.4375vw",
     height: "05.33vh",
@@ -196,6 +186,7 @@ const submitStyle = {
     backgroundColor: "#FD584200",
     position: "relative",
     marginLeft: "42.54%"
+
 };
 
 const saveStyle = {
@@ -203,5 +194,15 @@ const saveStyle = {
     width: "54px",
     color: "#FD5842"
 };
+
+const submitCircleStyle = {
+    borderRadius: "50%",
+    background: "#ED4D47",
+    float: "right",
+    height: "24px",
+    width: "24px",
+    marginRight:"10px"
+    
+}
 
 export default ListItem;

@@ -1,8 +1,31 @@
 import React from "react";
+import mobel from '../Images/mobel.png';
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardMedia from "@material-ui/core/CardMedia";
+
+const useStyles = makeStyles({
+  root: {
+      position: "absolute",
+      marginTop:"49%",
+      background: "none"
+  },
+  media: {
+      height: 394.55,
+      width: 811
+  }
+});
 
 export default function Image() {
-    return ( 
-      <img src="https://cdn1.bbcode0.com/uploads/2021/1/18/fd78eacdb92fea957ec9b61ab0ca6410-full.png" alt="track" style={{position:"absolute", height:"60%vh", width:"70%vw", marginLeft:"10%", marginTop:"37%"}}/>
- 
+  const classes = useStyles();
+    return (
+      <Card className = { classes.root }>
+      <CardActionArea>
+      <CardMedia className = { classes.media }
+      image = {mobel}
+      title = "image"/>
+      </CardActionArea>
+      </Card> 
     );
 }

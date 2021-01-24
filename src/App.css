@@ -19,8 +19,8 @@ li {
 
 .backgroundImg {
     position: absolute;
-    height: 80vh;
-    width: 64vw;
-    background: url(https://cdn1.bbcode0.com/uploads/2021/1/18/765efcc504ed753b260504ee20bcc3c5-full.png) no-repeat;
-    margin-left: 35vw;
+    height: 100vh;
+    width: 1285px;
+    background: url("./Images/Scene.png") no-repeat;
+    margin-left: 16vw;
 }

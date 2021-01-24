@@ -11,54 +11,26 @@ export class App extends Component {
     };
 
     componentDidMount() {
-        Axios.get(
-                "https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/arieell25/db/mobel"
-            )
+        Axios.get(`https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/arieell25/db/mobel`)
             .then(res => this.setState({ list: res.data }))
             .catch(res => console.log(res));
-    }
+    };
 
     delLi = id => {
-        Axios.delete(
-                `https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/arieell25/db/mobel/${id}`
-            )
-            .then(res =>
-                this.setState({
-                    list: [...this.state.list.filter(ListItem => ListItem.id !== id)]
-                })
-            )
+        Axios.delete(`https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/arieell25/db/mobel/${id}`)
+            .then(res => this.setState({list: [...this.state.list.filter(ListItem => ListItem.id !== id)]}))
             .catch(res => console.log(res));
     };
 
     addListItem = (date, name, city) => {
-        Axios.post(
-                "https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/arieell25/db/mobel", {
-                    date,
-                    name,
-                    city
-        
-                }
-            )
-            .then(res => this.setState({ list: [...this.state.list, res.data] }))
+        Axios.post(`https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/arieell25/db/mobel`, {date, name, city})
+            .then(res => this.setState({ list: [...this.state.list, res.data]}))
             .catch(res => console.log(res));
     };
 
     updateListItem = (id, date, name, city) => {
-        Axios.put(
-                `https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/arieell25/db/mobel/${id}`, {
-                    date,
-                    name,
-                    city
-        
-                }
-            )
-            .then(res =>
-                this.setState(prevState => ({
-                    list: prevState.list.map(listItem =>
-                        listItem.id !== res.data.id ? listItem : res.data
-                    )
-                }))
-            )
+        Axios.put(`https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/arieell25/db/mobel/${id}`, {date, name, city})
+            .then(res => this.setState(prevState => ({list: prevState.list.map(listItem => listItem.id !== res.data.id ? listItem : res.data)})))
             .catch(res => console.log(res));
     };
 

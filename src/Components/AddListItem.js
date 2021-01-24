@@ -39,22 +39,21 @@ export class AddListItem extends Component {
             onChange = { this.changeDate }
             style = { dateStyle }
             className = "form-control"/>
-            <input type = "text"
+            <input type = "textarea"
             name = "name"
             placeholder = "name"
             value = { this.state.name }
             onChange = { this.changeName }
             style = { nameStyle }
             className = "form-control"/>
-             <input type = "text"
+             <input type = "textarea"
             name = "city"
             placeholder = "city"
             value = { this.state.city }
             onChange = { this.changeCity }
             style = { cityStyle }
             className = "form-control"/>
-            <button type = "submit"
-            style = { submitStyle } >
+            <button type = "submit" style = { submitStyle } >
             <FaPlusCircle style = { circleStyle }/> 
             </button> 
             </form> 
@@ -65,8 +64,8 @@ export class AddListItem extends Component {
 
 const formStyle = {
     position: "absolute",
-    marginLeft: "75.6875vw",
-    marginTop: "10.22vh",
+    marginLeft: "68.6875vw",
+    marginTop: "15.22vh",
     width: "20.625vw",
     height: "30vh",
     boxShadow: "0px 4px 14px rgba(23, 25, 50, 0.5)",
@@ -80,6 +79,7 @@ const dateStyle = {
     width: "18.4375vw",
     height: "05.33vh",
     background: "#FFF",
+    border: "2px solid #EE4D47",
     boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.15)"
 };
 
@@ -90,6 +90,7 @@ const nameStyle = {
     width: "18.4375vw",
     height: "05.33vh",
     background: "#FFF",
+    border: "2px solid #EE4D47",
     boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.15)"
 };
 
@@ -100,6 +101,7 @@ const cityStyle = {
     width: "18.4375vw",
     height: "05.33vh",
     background: "#FFF",
+    border: "2px solid #EE4D47",
     boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.15)"
 };
 
